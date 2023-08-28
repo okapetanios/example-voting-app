@@ -28,7 +28,13 @@ pipeline {
 
     post{
       always{
-          echo 'This pipeline is completed.'
-      }
+            echo 'Pipeline completed successfully'
+        }
+        failure{
+            slackSend (channel: "#cicd-tests", message: "Build Failed: ${env.JOB_NAME} ${env.BUILD_NUMBER}")
+        }
+        success{
+            slackSend (channel: "#ccicd-tests", message: "Build Success: ${env.JOB_NAME} ${env.BUILD_NUMBER}")
+        }
     }
 }
