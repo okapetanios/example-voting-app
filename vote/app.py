@@ -9,6 +9,7 @@ import logging
 option_a = os.getenv('OPTION_A', "Cats")
 option_b = os.getenv('OPTION_B', "Dogs")
 hostname = socket.gethostname()
+version = 'v1'
 
 app = Flask(__name__)
 
@@ -42,6 +43,7 @@ def hello():
         option_b=option_b,
         hostname=hostname,
         vote=vote,
+        version=version,
     ))
     resp.set_cookie('voter_id', voter_id)
     return resp
