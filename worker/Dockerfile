@@ -1,4 +1,4 @@
-FROM maven:3.8.5-jdk-11-slim 
+FROM maven:3.9.8-sapmachine-21
 WORKDIR /app 
 COPY . .
 RUN mvn package && \ 
