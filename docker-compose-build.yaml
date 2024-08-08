@@ -46,7 +46,7 @@ services:
     build:
       context: ./result
     ports:
-      - 5001:4000
+      - 5001:80
     depends_on:
       - db
     networks:
