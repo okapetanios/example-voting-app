@@ -1,4 +1,4 @@
-FROM node:8.16.0-jessie-slim
+FROM node:18-slim
 
 RUN apt-get update -qq && apt-get install -qy \ 
     ca-certificates \
