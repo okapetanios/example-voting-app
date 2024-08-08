@@ -18,18 +18,23 @@ services:
       - instavote
       
   db:
-    image: postgres:9.4
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
     volumes:
       - "db-data:/var/lib/postgresql/data"
+      - "./healthchecks:/healthchecks"
+    healthcheck:
+      test: /healthchecks/postgres.sh
+      interval: "5s"
     networks:
       - instavote
-    environment: 
-      - POSTGRES_HOST_AUTH_METHOD=trust
 
   result:
     image: okapetanios/result:latest
     ports:
-      - 5001:4000
+      - 5001:80
     depends_on:
       - db
     networks:
