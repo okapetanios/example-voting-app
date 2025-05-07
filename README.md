@@ -1,3 +1,5 @@
+[![Build Status](http://34.9.158.130:8080/job/instavote/job/worker-build/badge/icon)](http://34.9.158.130:8080/job/instavote/job/worker-build/)
+
 Example Voting App
 =========
 
